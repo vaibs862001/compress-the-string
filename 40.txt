@@ -1,0 +1,49 @@
+
+Compress the String:
+Write a program to do basic string compression. For a character which is consecutively repeated more than once, replace consecutive duplicate occurrences with the count of repetitions.
+
+For e.g. if a String has 'x' repeated 5 times, replace this "xxxxx" with "x5".
+
+Note : Consecutive count of every character in input string is less than equal to 9.
+
+Input Format :
+Input string S
+
+Output Format :
+Compressed string
+
+Sample Input:
+aaabbccdsa
+
+Sample Output:
+a3b2c2dsa
+
+def stringCompression(s):
+    i = 0
+    res = []
+    while i < len(s) :
+        j = i + 1
+        c = 1
+        while j < len(s):
+            if s[i] == s[j]:
+                c+=1
+                j+=1
+                
+            else:
+                break
+            
+        if c > 1:
+            res.append(s[i])
+            res.append(c)
+            
+        else:
+            res.append(s[i])
+            
+        i = i + c
+                
+    for i in range(len(res)):
+        print(res[i],end ='')
+           
+
+s = input()
+stringCompression(s)
